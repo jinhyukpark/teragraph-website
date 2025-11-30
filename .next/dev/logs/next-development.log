@@ -1,11 +1,12 @@
-[00:00:01.630] Server  LOG     6:08:47 PM [nextjs] Server running at http://0.0.0.0:5000
-[00:00:01.631] Server  LOG     6:08:47 PM [nextjs] Ready for connections
-[00:00:02.205] Server  WARN     ⚠ Cross origin request detected from efcbd0a7-3674-4554-9bce-c6fb23550e3f-00-2pk5hp6rw0rq6.picard.replit.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+[00:00:01.490] Server  LOG     6:13:38 PM [nextjs] Server running at http://0.0.0.0:5000
+[00:00:01.491] Server  LOG     6:13:38 PM [nextjs] Ready for connections
+[00:00:01.671] Server  WARN     ⚠ Cross origin request detected from efcbd0a7-3674-4554-9bce-c6fb23550e3f-00-2pk5hp6rw0rq6.picard.replit.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
 Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
-[00:00:04.732] Server  LOG      ○ Compiling / ...
-[00:00:17.166] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:17.564] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:18.701] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:04.655] Server  LOG      ○ Compiling / ...
+[00:00:16.644] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:17.209] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:17.947] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:17.948] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -53,7 +54,7 @@ It can also happen if the client has a browser extension installed which messes 
                                       disabled={false}
                                       onPointerDown={function handleEvent}
                                       onKeyDown={function handleEvent}
--                                     fdprocessedid="2kpn7"
+-                                     fdprocessedid="8bnga5"
                                     >
                             ...
                               <Primitive.button.Slot type="button" id="radix-_R_q..." aria-haspopup="menu" ...>
@@ -73,13 +74,13 @@ It can also happen if the client has a browser extension installed which messes 
                                       disabled={false}
                                       onPointerDown={function handleEvent}
                                       onKeyDown={function handleEvent}
--                                     fdprocessedid="e6mdth"
+-                                     fdprocessedid="c3u6wj"
                                     >
                             <_c variant="default" size="sm" className="rounded-full">
                               <button
                                 className={"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medi..."}
                                 ref={null}
--                               fdprocessedid="is8g7n"
+-                               fdprocessedid="41it7"
                               >
 +                               Get Started
                       <section>
@@ -103,7 +104,7 @@ It can also happen if the client has a browser extension installed which messes 
                                       placeholder="Enter the subject"
                                       required={true}
                                       data-testid="input-title"
--                                     fdprocessedid="fz6c9"
+-                                     fdprocessedid="b566s5"
                                     >
                                 ...
                                   <Primitive.div.Slot ref={function}>
@@ -127,7 +128,7 @@ It can also happen if the client has a browser extension installed which messes 
                                           onPointerDown={function handleEvent}
                                           onKeyDown={function handleEvent}
                                           ref={function}
--                                         fdprocessedid="2ptj6x"
+-                                         fdprocessedid="071kfr"
                                         >
                                 <div>
                                 <_c type="submit" className="w-full" size="lg" disabled={false} ...>
@@ -137,12 +138,150 @@ It can also happen if the client has a browser extension installed which messes 
                                     type="submit"
                                     disabled={false}
                                     data-testid="button-submit"
--                                   fdprocessedid="ysucxp"
+-                                   fdprocessedid="n3mw5t"
                                   >
                       ...
               ...
             ...
 
-[00:00:19.775] Server  WARN     ⚠ Cross origin request detected from 127.0.0.1 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+[00:00:18.139] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                  <Home params={Promise} searchParams={Promise}>
+                    <div className="min-h-scre...">
+                      <nav className="fixed top-...">
+                        <div className="container ...">
+                          <LinkComponent>
+                          <div className="hidden md:...">
+                            <a>
+                            <a>
+                            <a>
+                            <a>
+                            ...
+                              <Primitive.button.Slot type="button" id="radix-_R_m..." aria-haspopup="menu" ...>
+                                <Primitive.button.SlotClone type="button" id="radix-_R_m..." aria-haspopup="menu" ...>
+                                  <_c variant="ghost" size="sm" className="w-16 px-0 ..." type="button" ...>
+                                    <button
+                                      className={"inline-flex items-center justify-center whitespace-nowrap font-medi..."}
+                                      ref={function}
+                                      type="button"
+                                      id="radix-_R_m6atmlb_"
+                                      aria-haspopup="menu"
+                                      aria-expanded={false}
+                                      aria-controls={undefined}
+                                      data-state="closed"
+                                      data-disabled={undefined}
+                                      disabled={false}
+                                      onPointerDown={function handleEvent}
+                                      onKeyDown={function handleEvent}
+-                                     fdprocessedid="z1s0tt"
+                                    >
+                            ...
+                              <Primitive.button.Slot type="button" id="radix-_R_q..." aria-haspopup="menu" ...>
+                                <Primitive.button.SlotClone type="button" id="radix-_R_q..." aria-haspopup="menu" ...>
+                                  <_c variant="ghost" size="icon" className="relative" data-testid="button-not..." ...>
+                                    <button
+                                      className={"inline-flex items-center justify-center gap-2 whitespace-nowrap rou..."}
+                                      ref={function}
+                                      data-testid="button-notifications"
+                                      type="button"
+                                      id="radix-_R_q6atmlb_"
+                                      aria-haspopup="menu"
+                                      aria-expanded={false}
+                                      aria-controls={undefined}
+                                      data-state="closed"
+                                      data-disabled={undefined}
+                                      disabled={false}
+                                      onPointerDown={function handleEvent}
+                                      onKeyDown={function handleEvent}
+-                                     fdprocessedid="qfpf72"
+                                    >
+                            <_c variant="default" size="sm" className="rounded-full">
+                              <button
+                                className={"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medi..."}
+                                ref={null}
+-                               fdprocessedid="5gchv8"
+                              >
++                               Get Started
+                      <section>
+                      <section>
+                      <section>
+                      <section>
+                      ...
+                        <div ref={null} className="rounded-xl...">
+                          <_c8 className="p-6 sm:p-8">
+                            <div ref={null} className="p-6 sm:p-8">
+                              <form onSubmit={function handleSubmit} className="space-y-6">
+                                <div className="space-y-2">
+                                  <label>
+                                  <_c id="title" name="title" placeholder="Enter the ..." required={true} ...>
+                                    <input
+                                      type={undefined}
+                                      className="flex h-9 w-full rounded-md border border-input px-3 py-1 text-base sh..."
+                                      ref={null}
+                                      id="title"
+                                      name="title"
+                                      placeholder="Enter the subject"
+                                      required={true}
+                                      data-testid="input-title"
+-                                     fdprocessedid="oidlra"
+                                    >
+                                ...
+                                  <Primitive.div.Slot ref={function}>
+                                    <Primitive.div.SlotClone ref={function}>
+                                      <Primitive.button type="button" role="combobox" aria-controls="radix-_R_9..." ...>
+                                        <button
+                                          type="button"
+                                          role="combobox"
+                                          aria-controls="radix-_R_9aqatmlb_"
+                                          aria-expanded={false}
+                                          aria-required={true}
+                                          aria-autocomplete="none"
+                                          dir="ltr"
+                                          data-state="closed"
+                                          disabled={false}
+                                          data-disabled={undefined}
+                                          data-placeholder=""
+                                          className={"flex h-9 w-full items-center justify-between whitespace-nowrap ..."}
+                                          data-testid="select-purpose"
+                                          onClick={function handleEvent}
+                                          onPointerDown={function handleEvent}
+                                          onKeyDown={function handleEvent}
+                                          ref={function}
+-                                         fdprocessedid="4ochm"
+                                        >
+                                <div>
+                                <_c type="submit" className="w-full" size="lg" disabled={false} ...>
+                                  <button
+                                    className={"inline-flex items-center justify-center gap-2 whitespace-nowrap text-..."}
+                                    ref={null}
+                                    type="submit"
+                                    disabled={false}
+                                    data-testid="button-submit"
+-                                   fdprocessedid="un8ijb"
+                                  >
+                      ...
+              ...
+            ...
+
+[00:00:19.179] Server  WARN     ⚠ Cross origin request detected from 127.0.0.1 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
 Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
-[00:00:19.838] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:19.234] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

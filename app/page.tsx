@@ -258,7 +258,8 @@ export default function Home() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const data = {
       title: formData.get('title') as string,
       purpose: formData.get('purpose') as string,
@@ -283,14 +284,19 @@ export default function Home() {
         description: t.contact.form.successDesc,
       });
       
-      addNotification(
-        lang === "ko" ? "새 문의가 접수되었습니다" : "New contact submitted",
-        `${data.title} - ${data.purpose}`,
-        "success"
-      );
+      try {
+        addNotification(
+          lang === "ko" ? "새 문의가 접수되었습니다" : "New contact submitted",
+          `${data.title} - ${data.purpose}`,
+          "success"
+        );
+      } catch (notifError) {
+        console.log("Notification error:", notifError);
+      }
       
-      e.currentTarget.reset();
+      form.reset();
     } catch (error) {
+      console.error("Contact form error:", error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",
