@@ -218,8 +218,9 @@ export default function Home() {
             
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="w-12 px-0">
+                <Button variant="ghost" size="sm" className="w-16 px-0 gap-1">
                   <Globe className="h-4 w-4" />
+                  <span className="font-medium">{lang.toUpperCase()}</span>
                   <span className="sr-only">Switch Language</span>
                 </Button>
               </DropdownMenuTrigger>
