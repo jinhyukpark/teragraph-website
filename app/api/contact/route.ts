@@ -24,20 +24,27 @@ export async function POST(request: NextRequest) {
       .returning();
 
     if (process.env.SMTP_USER && process.env.SMTP_PASS) {
-      await transporter.sendMail({
-        from: process.env.SMTP_USER,
-        to: "manager@teragraph.io",
-        subject: `[TeraGraph Contact] ${validatedData.purpose}: ${validatedData.title}`,
-        html: `
-          <h2>New Contact Message</h2>
-          <p><strong>Title:</strong> ${validatedData.title}</p>
-          <p><strong>Purpose:</strong> ${validatedData.purpose}</p>
-          <p><strong>Message:</strong></p>
-          <p>${validatedData.content.replace(/\n/g, "<br>")}</p>
-          <hr>
-          <p><small>Submitted at: ${new Date().toISOString()}</small></p>
-        `,
-      });
+      try {
+        await transporter.sendMail({
+          from: process.env.SMTP_USER,
+          to: "manager@illunex.com",
+          subject: `[TeraGraph Contact] ${validatedData.purpose}: ${validatedData.title}`,
+          html: `
+            <h2>New Contact Message</h2>
+            <p><strong>Title:</strong> ${validatedData.title}</p>
+            <p><strong>Purpose:</strong> ${validatedData.purpose}</p>
+            <p><strong>Message:</strong></p>
+            <p>${validatedData.content.replace(/\n/g, "<br>")}</p>
+            <hr>
+            <p><small>Submitted at: ${new Date().toISOString()}</small></p>
+          `,
+        });
+        console.log("Email sent successfully to manager@illunex.com");
+      } catch (emailError) {
+        console.error("Email sending failed:", emailError);
+      }
+    } else {
+      console.log("SMTP credentials not configured, skipping email");
     }
 
     return NextResponse.json({ success: true, message });
