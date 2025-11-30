@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
       try {
         await transporter.sendMail({
           from: process.env.SMTP_USER,
-          to: "manager@illunex.com",
+          to: "manager@teragraph.io",
           subject: `[TeraGraph Contact] ${validatedData.purpose}: ${validatedData.title}`,
           html: `
             <h2>New Contact Message</h2>
