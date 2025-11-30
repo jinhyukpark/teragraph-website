@@ -245,7 +245,7 @@ async function POST(request) {
             <p><small>Submitted at: ${new Date().toISOString()}</small></p>
           `
                 });
-                console.log("Email sent successfully to manager@illunex.com");
+                console.log("Email sent successfully to manager@teragraph.io");
             } catch (emailError) {
                 console.error("Email sending failed:", emailError);
             }
