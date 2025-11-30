@@ -1,10 +1,14 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Smartphone, Palette, Globe, Rocket, ShieldCheck, MapPin, Mail, Phone, Lightbulb, Target, Zap } from "lucide-react";
+import { ArrowRight, Brain, Smartphone, Palette, Globe, Rocket, ShieldCheck, MapPin, Mail, Phone, Lightbulb, Target, Zap, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
 
 import heroBg from '@assets/generated_images/abstract_network_of_glowing_nodes_and_lines_on_a_dark_background.png';
 import aiImg from '@assets/generated_images/abstract_representation_of_artificial_intelligence.png';
@@ -88,6 +92,28 @@ const translations = {
         support: "Technical Support",
         supportValue: "24 Hours",
         experience: "Years Experience"
+      }
+    },
+    contact: {
+      title: "Get in Touch",
+      subtitle: "Have a project in mind? Let's build something great together.",
+      form: {
+        title: "Title",
+        titlePlaceholder: "Enter the subject",
+        purpose: "Purpose",
+        purposePlaceholder: "Select a purpose",
+        purposes: {
+          inquiry: "General Inquiry",
+          project: "Project Proposal",
+          partnership: "Partnership",
+          support: "Technical Support"
+        },
+        content: "Content",
+        contentPlaceholder: "Tell us about your project or inquiry...",
+        submit: "Send Message",
+        sending: "Sending...",
+        success: "Message sent successfully!",
+        successDesc: "We'll get back to you as soon as possible."
       }
     },
     footer: {
@@ -175,6 +201,28 @@ const translations = {
         experience: "년의 경험"
       }
     },
+    contact: {
+      title: "문의하기",
+      subtitle: "프로젝트를 계획 중이신가요? 함께 멋진 것을 만들어봅시다.",
+      form: {
+        title: "제목",
+        titlePlaceholder: "제목을 입력하세요",
+        purpose: "목적",
+        purposePlaceholder: "문의 목적을 선택하세요",
+        purposes: {
+          inquiry: "일반 문의",
+          project: "프로젝트 제안",
+          partnership: "파트너십",
+          support: "기술 지원"
+        },
+        content: "내용",
+        contentPlaceholder: "프로젝트나 문의 내용을 입력해주세요...",
+        submit: "메세지 보내기",
+        sending: "전송 중...",
+        success: "메세지가 성공적으로 전송되었습니다!",
+        successDesc: "빠른 시일 내에 답변 드리겠습니다."
+      }
+    },
     footer: {
       description: "차세대 ICT 솔루션으로 비즈니스에 힘을 실어줍니다. 기획부터 배포까지, 디지털 혁신의 파트너가 되겠습니다.",
       servicesTitle: "서비스",
@@ -202,7 +250,25 @@ const staggerContainer = {
 
 export default function Home() {
   const [lang, setLang] = useState<Language>("en");
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const t = translations[lang];
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      toast({
+        title: t.contact.form.success,
+        description: t.contact.form.successDesc,
+      });
+      // Reset form if needed
+      (e.target as HTMLFormElement).reset();
+    }, 1500);
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
@@ -550,6 +616,84 @@ export default function Home() {
               </div>
               {/* Background Glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/20 blur-[100px] -z-10 rounded-full pointer-events-none"></div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-24 bg-muted/20">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mx-auto">
+            <motion.div 
+              {...fadeInUp}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">{t.contact.title}</h2>
+              <p className="text-muted-foreground">{t.contact.subtitle}</p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+                <CardContent className="p-6 sm:p-8">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="space-y-2">
+                      <label htmlFor="title" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        {t.contact.form.title}
+                      </label>
+                      <Input id="title" placeholder={t.contact.form.titlePlaceholder} required className="bg-background/50" />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="purpose" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        {t.contact.form.purpose}
+                      </label>
+                      <Select required>
+                        <SelectTrigger className="bg-background/50">
+                          <SelectValue placeholder={t.contact.form.purposePlaceholder} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="inquiry">{t.contact.form.purposes.inquiry}</SelectItem>
+                          <SelectItem value="project">{t.contact.form.purposes.project}</SelectItem>
+                          <SelectItem value="partnership">{t.contact.form.purposes.partnership}</SelectItem>
+                          <SelectItem value="support">{t.contact.form.purposes.support}</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="content" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        {t.contact.form.content}
+                      </label>
+                      <Textarea 
+                        id="content" 
+                        placeholder={t.contact.form.contentPlaceholder} 
+                        required 
+                        className="min-h-[150px] bg-background/50 resize-none" 
+                      />
+                    </div>
+
+                    <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                      {isSubmitting ? (
+                        <>
+                          <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent"></div>
+                          {t.contact.form.sending}
+                        </>
+                      ) : (
+                        <>
+                          <Send className="mr-2 h-4 w-4" />
+                          {t.contact.form.submit}
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </div>
