@@ -1,6 +1,64 @@
-node_modules
-dist
-.DS_Store
-server/public
-vite.config.ts.*
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Build outputs
+dist/
+.next/
+out/
+build/
 *.tar.gz
+
+# Server build
+server/public/
+
+# Cache
+.cache/
+*.tsbuildinfo
+
+# IDE & OS
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+*.sublime-*
+
+# Environment files (secrets should not be committed)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+/tmp/
+
+# Vite
+vite.config.ts.*
+
+# Replit specific
+.replit
+replit.nix
+.config/
+.upm/
+
+# Misc
+*.pem
+.turbo/
