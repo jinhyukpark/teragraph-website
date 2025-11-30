@@ -3,6 +3,8 @@ frontend:
   phases:
     preBuild:
       commands:
+        - rm -rf .next/cache
+        - rm -rf node_modules/.cache
         - npm ci
     build:
       commands:
@@ -14,4 +16,17 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
-      - .next/cache/**/*
+
+customHeaders:
+  - pattern: '**/*.html'
+    headers:
+      - key: 'Cache-Control'
+        value: 'no-cache, no-store, must-revalidate'
+  - pattern: '/_next/static/**/*'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=31536000, immutable'
+  - pattern: '/images/**/*'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=86400'

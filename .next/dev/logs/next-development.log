@@ -1,11 +1,15 @@
-[00:00:01.776] Server  LOG     6:16:47 PM [nextjs] Server running at http://0.0.0.0:5000
-[00:00:01.776] Server  LOG     6:16:47 PM [nextjs] Ready for connections
-[00:00:01.881] Server  WARN     ⚠ Cross origin request detected from efcbd0a7-3674-4554-9bce-c6fb23550e3f-00-2pk5hp6rw0rq6.picard.replit.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+[00:00:01.498] Server  LOG     6:38:30 PM [nextjs] Server running at http://0.0.0.0:5000
+[00:00:01.499] Server  LOG     6:38:30 PM [nextjs] Ready for connections
+[00:00:01.612] Server  WARN     ⚠ Cross origin request detected from efcbd0a7-3674-4554-9bce-c6fb23550e3f-00-2pk5hp6rw0rq6.picard.replit.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
 Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
-[00:00:04.901] Server  LOG      ○ Compiling /_not-found/page ...
-[00:00:16.095] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:16.717] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:17.358] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:04.626] Server  LOG      ○ Compiling /_not-found/page ...
+[00:00:10.087] Server  WARN     ⚠ Cross origin request detected from 127.0.0.1 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[00:00:10.160] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:11.475] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:13.271] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:13.995] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:13.998] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -53,7 +57,7 @@ It can also happen if the client has a browser extension installed which messes 
                                       disabled={false}
                                       onPointerDown={function handleEvent}
                                       onKeyDown={function handleEvent}
--                                     fdprocessedid="je4fm"
+-                                     fdprocessedid="2t10i"
                                     >
                             <NotificationCenter>
                               <_c variant="ghost" size="icon" className="relative" data-testid="button-not...">
@@ -61,13 +65,13 @@ It can also happen if the client has a browser extension installed which messes 
                                   className={"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded..."}
                                   ref={null}
                                   data-testid="button-notifications"
--                                 fdprocessedid="bfkip"
+-                                 fdprocessedid="v2z89"
                                 >
                             <_c variant="default" size="sm" className="rounded-full">
                               <button
                                 className={"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medi..."}
                                 ref={null}
--                               fdprocessedid="e1f62j"
+-                               fdprocessedid="05uqqh"
                               >
 +                               Get Started
                       <section>
@@ -91,7 +95,7 @@ It can also happen if the client has a browser extension installed which messes 
                                       placeholder="Enter the subject"
                                       required={true}
                                       data-testid="input-title"
--                                     fdprocessedid="4u2566"
+-                                     fdprocessedid="e99bdn"
                                     >
                                 ...
                                   <Primitive.div.Slot ref={function}>
@@ -115,7 +119,7 @@ It can also happen if the client has a browser extension installed which messes 
                                           onPointerDown={function handleEvent}
                                           onKeyDown={function handleEvent}
                                           ref={function}
--                                         fdprocessedid="st7csk"
+-                                         fdprocessedid="dvgdf8"
                                         >
                                 <div>
                                 <_c type="submit" className="w-full" size="lg" disabled={false} ...>
@@ -125,14 +129,13 @@ It can also happen if the client has a browser extension installed which messes 
                                     type="submit"
                                     disabled={false}
                                     data-testid="button-submit"
--                                   fdprocessedid="bh0zir"
+-                                   fdprocessedid="xsk0kr"
                                   >
                       ...
               ...
             ...
 
-[00:00:18.464] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:19.371] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:14.078] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -180,7 +183,7 @@ It can also happen if the client has a browser extension installed which messes 
                                       disabled={false}
                                       onPointerDown={function handleEvent}
                                       onKeyDown={function handleEvent}
--                                     fdprocessedid="fcczvp"
+-                                     fdprocessedid="q6xamx8"
                                     >
                             <NotificationCenter>
                               <_c variant="ghost" size="icon" className="relative" data-testid="button-not...">
@@ -188,13 +191,13 @@ It can also happen if the client has a browser extension installed which messes 
                                   className={"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded..."}
                                   ref={null}
                                   data-testid="button-notifications"
--                                 fdprocessedid="5r974r"
+-                                 fdprocessedid="lz9gh7"
                                 >
                             <_c variant="default" size="sm" className="rounded-full">
                               <button
                                 className={"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medi..."}
                                 ref={null}
--                               fdprocessedid="cg0a14"
+-                               fdprocessedid="uk7bk"
                               >
 +                               Get Started
                       <section>
@@ -218,7 +221,7 @@ It can also happen if the client has a browser extension installed which messes 
                                       placeholder="Enter the subject"
                                       required={true}
                                       data-testid="input-title"
--                                     fdprocessedid="clnzfn"
+-                                     fdprocessedid="nr4urs"
                                     >
                                 ...
                                   <Primitive.div.Slot ref={function}>
@@ -242,7 +245,7 @@ It can also happen if the client has a browser extension installed which messes 
                                           onPointerDown={function handleEvent}
                                           onKeyDown={function handleEvent}
                                           ref={function}
--                                         fdprocessedid="h4m5xc"
+-                                         fdprocessedid="kk7qes"
                                         >
                                 <div>
                                 <_c type="submit" className="w-full" size="lg" disabled={false} ...>
@@ -252,7 +255,134 @@ It can also happen if the client has a browser extension installed which messes 
                                     type="submit"
                                     disabled={false}
                                     data-testid="button-submit"
--                                   fdprocessedid="xyvt1k"
+-                                   fdprocessedid="4hvguv"
+                                  >
+                      ...
+              ...
+            ...
+
+[00:00:14.698] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:14.698] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                  <Home params={Promise} searchParams={Promise}>
+                    <div className="min-h-scre...">
+                      <nav className="fixed top-...">
+                        <div className="container ...">
+                          <LinkComponent>
+                          <div className="hidden md:...">
+                            <a>
+                            <a>
+                            <a>
+                            <a>
+                            ...
+                              <Primitive.button.Slot type="button" id="radix-_R_m..." aria-haspopup="menu" ...>
+                                <Primitive.button.SlotClone type="button" id="radix-_R_m..." aria-haspopup="menu" ...>
+                                  <_c variant="ghost" size="sm" className="w-16 px-0 ..." type="button" ...>
+                                    <button
+                                      className={"inline-flex items-center justify-center whitespace-nowrap font-medi..."}
+                                      ref={function}
+                                      type="button"
+                                      id="radix-_R_m6atmlb_"
+                                      aria-haspopup="menu"
+                                      aria-expanded={false}
+                                      aria-controls={undefined}
+                                      data-state="closed"
+                                      data-disabled={undefined}
+                                      disabled={false}
+                                      onPointerDown={function handleEvent}
+                                      onKeyDown={function handleEvent}
+-                                     fdprocessedid="ya0avk"
+                                    >
+                            <NotificationCenter>
+                              <_c variant="ghost" size="icon" className="relative" data-testid="button-not...">
+                                <button
+                                  className={"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded..."}
+                                  ref={null}
+                                  data-testid="button-notifications"
+-                                 fdprocessedid="ex869"
+                                >
+                            <_c variant="default" size="sm" className="rounded-full">
+                              <button
+                                className={"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medi..."}
+                                ref={null}
+-                               fdprocessedid="av59f"
+                              >
++                               Get Started
+                      <section>
+                      <section>
+                      <section>
+                      <section>
+                      ...
+                        <div ref={null} className="rounded-xl...">
+                          <_c8 className="p-6 sm:p-8">
+                            <div ref={null} className="p-6 sm:p-8">
+                              <form onSubmit={function handleSubmit} className="space-y-6">
+                                <div className="space-y-2">
+                                  <label>
+                                  <_c id="title" name="title" placeholder="Enter the ..." required={true} ...>
+                                    <input
+                                      type={undefined}
+                                      className="flex h-9 w-full rounded-md border border-input px-3 py-1 text-base sh..."
+                                      ref={null}
+                                      id="title"
+                                      name="title"
+                                      placeholder="Enter the subject"
+                                      required={true}
+                                      data-testid="input-title"
+-                                     fdprocessedid="f4wuc"
+                                    >
+                                ...
+                                  <Primitive.div.Slot ref={function}>
+                                    <Primitive.div.SlotClone ref={function}>
+                                      <Primitive.button type="button" role="combobox" aria-controls="radix-_R_9..." ...>
+                                        <button
+                                          type="button"
+                                          role="combobox"
+                                          aria-controls="radix-_R_9aqatmlb_"
+                                          aria-expanded={false}
+                                          aria-required={true}
+                                          aria-autocomplete="none"
+                                          dir="ltr"
+                                          data-state="closed"
+                                          disabled={false}
+                                          data-disabled={undefined}
+                                          data-placeholder=""
+                                          className={"flex h-9 w-full items-center justify-between whitespace-nowrap ..."}
+                                          data-testid="select-purpose"
+                                          onClick={function handleEvent}
+                                          onPointerDown={function handleEvent}
+                                          onKeyDown={function handleEvent}
+                                          ref={function}
+-                                         fdprocessedid="85vbhl"
+                                        >
+                                <div>
+                                <_c type="submit" className="w-full" size="lg" disabled={false} ...>
+                                  <button
+                                    className={"inline-flex items-center justify-center gap-2 whitespace-nowrap text-..."}
+                                    ref={null}
+                                    type="submit"
+                                    disabled={false}
+                                    data-testid="button-submit"
+-                                   fdprocessedid="15xumm"
                                   >
                       ...
               ...
