@@ -1570,6 +1570,10 @@
     place-content: center;
   }
 
+  .items-baseline {
+    align-items: baseline;
+  }
+
   .items-center {
     align-items: center;
   }
@@ -2578,6 +2582,10 @@
     font-size: .8rem;
   }
 
+  .text-\[0\.45em\] {
+    font-size: .45em;
+  }
+
   .text-\[2rem\] {
     font-size: 2rem;
   }
@@ -2627,6 +2635,11 @@
     font-weight: var(--font-weight-semibold);
   }
 
+  .tracking-\[0\.15em\] {
+    --tw-tracking: .15em;
+    letter-spacing: .15em;
+  }
+
   .tracking-tight {
     --tw-tracking: var(--tracking-tight);
     letter-spacing: var(--tracking-tight);
@@ -2668,6 +2681,14 @@
 
   .whitespace-nowrap {
     white-space: nowrap;
+  }
+
+  .text-\[\#4F46E5\] {
+    color: #4f46e5;
+  }
+
+  .text-\[\#06B6D4\] {
+    color: #06b6d4;
   }
 
   .text-accent {

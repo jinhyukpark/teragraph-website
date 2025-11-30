@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Brain, Smartphone, Palette, Globe, Rocket, ShieldCheck, MapPin, Mail, Phone, Lightbulb, Target, Zap, Send, Heart, Briefcase } from "lucide-react";
+import { TerraGraphLogo } from "@/components/TerraGraphLogo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
@@ -298,7 +299,7 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center cursor-pointer hover:opacity-80 transition-opacity">
-            <img src="/images/terragraph-logo.jpg" alt="TerraGraph - AI-Powered Data Intelligence" className="h-10 w-auto" />
+            <TerraGraphLogo className="h-8 text-xl" />
           </Link>
           <div className="hidden md:flex items-center gap-8">
             <a href="#vision" className="text-sm font-medium hover:text-primary transition-colors">{t.nav.vision}</a>
@@ -729,7 +730,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-2">
               <Link href="/" className="flex items-center mb-6 hover:opacity-80 transition-opacity cursor-pointer">
-                <img src="/images/terragraph-logo.jpg" alt="TerraGraph - AI-Powered Data Intelligence" className="h-12 w-auto" />
+                <TerraGraphLogo className="h-10 text-2xl" showTagline={true} />
               </Link>
               <p className="text-muted-foreground max-w-md mb-8">
                 {t.footer.description}
