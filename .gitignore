@@ -58,6 +58,10 @@ vite.config.ts.*
 replit.nix
 .config/
 .upm/
+*.bin
+.agent_state_main.bin
+.repl_state.bin
+replit.md
 
 # Misc
 *.pem
