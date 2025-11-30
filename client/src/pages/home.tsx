@@ -3,12 +3,187 @@ import { motion } from "framer-motion";
 import { ArrowRight, Brain, Smartphone, Palette, Globe, Rocket, ShieldCheck, MapPin, Mail, Phone, Lightbulb, Target, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 import heroBg from '@assets/generated_images/abstract_network_of_glowing_nodes_and_lines_on_a_dark_background.png';
 import aiImg from '@assets/generated_images/abstract_representation_of_artificial_intelligence.png';
 import mobileImg from '@assets/generated_images/abstract_mobile_app_development_concept.png';
 import designImg from '@assets/generated_images/abstract_creative_design_concept.png';
 import visionImg from '@assets/generated_images/futuristic_horizon_with_digital_sunrise_and_connected_city.png';
+
+type Language = "en" | "ko";
+
+const translations = {
+  en: {
+    nav: {
+      vision: "Vision",
+      services: "Services",
+      about: "About",
+      contact: "Contact",
+      getStarted: "Get Started"
+    },
+    hero: {
+      tagline: "Innovating the Digital Landscape",
+      titlePrefix: "We Architect",
+      titleHighlight: "Digital Reality",
+      description: "TeraGraph is a premier ICT solutions provider. We blend AI, mobile technology, and cutting-edge design to build the infrastructure of tomorrow.",
+      explore: "Explore Solutions",
+      vision: "Our Vision"
+    },
+    vision: {
+      title: "Shaping the Future of Connectivity",
+      description: "Our vision is to create a world where technology is not just a tool, but an extension of human potential. We believe in a seamless integration of digital intelligence and physical reality.",
+      innovation: {
+        title: "Innovation First",
+        desc: "We don't just follow trends; we set them. By constantly exploring new technologies like Generative AI and IoT, we keep our clients ahead of the curve."
+      },
+      human: {
+        title: "Human-Centric",
+        desc: "Technology must serve people. Our solutions are designed with empathy, focusing on user experience and accessibility above all else."
+      },
+      sustainable: {
+        title: "Sustainable Growth",
+        desc: "We build scalable architectures that grow with your business. Sustainable code, efficient resources, and long-term partnership."
+      }
+    },
+    services: {
+      title: "Our Core Services",
+      description: "Comprehensive IT services designed to scale with your ambition. From intelligent algorithms to pixel-perfect interfaces.",
+      ai: {
+        title: "AI Solutions",
+        subtitle: "Advanced Machine Learning & Data Analysis",
+        desc: "Leverage the power of artificial intelligence to automate processes, gain insights, and create smarter applications that adapt to user needs."
+      },
+      mobile: {
+        title: "Mobile & Web",
+        subtitle: "Cross-platform Applications",
+        desc: "We build responsive, high-performance web and mobile applications that provide seamless experiences across all devices and platforms."
+      },
+      design: {
+        title: "UI/UX Design",
+        subtitle: "Creative & Strategic Design",
+        desc: "Our design team crafts intuitive and visually stunning interfaces that engage users and elevate your brand identity to new heights."
+      }
+    },
+    about: {
+      titlePrefix: "More Than Just Code.",
+      titleSuffix: "We Are Your Partners.",
+      description: "At TeraGraph, we operate with the agility of a startup and the expertise of an enterprise. We don't just deliver software; we deliver value.",
+      rapid: {
+        title: "Rapid Innovation",
+        desc: "We iterate fast. Our agile methodology ensures that your product hits the market quickly without compromising on quality."
+      },
+      reliable: {
+        title: "Reliable Systems",
+        desc: "Security and stability are at the core of everything we build. We create robust systems that you can rely on."
+      },
+      global: {
+        title: "Global Standards",
+        desc: "We adhere to international coding standards and best practices, ensuring your solution is world-class."
+      },
+      stats: {
+        satisfaction: "Client Satisfaction",
+        delivered: "Projects Delivered",
+        support: "Technical Support",
+        experience: "Years Experience"
+      }
+    },
+    footer: {
+      description: "Empowering businesses with next-generation ICT solutions. From concept to deployment, we are your partners in digital transformation.",
+      servicesTitle: "Services",
+      contactTitle: "Contact Us",
+      address: "123 Innovation Drive, Tech Valley, Seoul, Korea",
+      privacy: "Privacy Policy",
+      terms: "Terms of Service",
+      rights: "All rights reserved."
+    }
+  },
+  ko: {
+    nav: {
+      vision: "비전",
+      services: "서비스",
+      about: "소개",
+      contact: "문의",
+      getStarted: "시작하기"
+    },
+    hero: {
+      tagline: "디지털 환경의 혁신",
+      titlePrefix: "우리는 설계합니다",
+      titleHighlight: "디지털 현실을",
+      description: "TeraGraph는 선도적인 ICT 솔루션 제공업체입니다. AI, 모바일 기술, 최첨단 디자인을 결합하여 내일의 인프라를 구축합니다.",
+      explore: "솔루션 탐색",
+      vision: "우리의 비전"
+    },
+    vision: {
+      title: "연결의 미래를 만들다",
+      description: "기술이 단순한 도구가 아닌 인간 잠재력의 확장이 되는 세상을 만듭니다. 우리는 디지털 지능과 물리적 현실의 완벽한 통합을 믿습니다.",
+      innovation: {
+        title: "혁신 우선",
+        desc: "트렌드를 따르지 않고 주도합니다. 생성형 AI와 IoT 같은 신기술을 끊임없이 탐구하여 고객을 앞서가게 합니다."
+      },
+      human: {
+        title: "인간 중심",
+        desc: "기술은 사람을 위해 존재해야 합니다. 우리의 솔루션은 공감을 바탕으로 사용자 경험과 접근성을 최우선으로 설계됩니다."
+      },
+      sustainable: {
+        title: "지속 가능한 성장",
+        desc: "비즈니스와 함께 성장하는 확장 가능한 아키텍처를 구축합니다. 지속 가능한 코드, 효율적인 리소스, 그리고 장기적인 파트너십을 약속합니다."
+      }
+    },
+    services: {
+      title: "핵심 서비스",
+      description: "야망과 함께 성장하도록 설계된 포괄적인 IT 서비스. 지능형 알고리즘부터 픽셀 단위의 완벽한 인터페이스까지.",
+      ai: {
+        title: "AI 솔루션",
+        subtitle: "고급 머신러닝 & 데이터 분석",
+        desc: "인공지능의 힘을 활용하여 프로세스를 자동화하고, 통찰력을 얻으며, 사용자 요구에 적응하는 스마트한 애플리케이션을 만듭니다."
+      },
+      mobile: {
+        title: "모바일 & 웹",
+        subtitle: "크로스 플랫폼 애플리케이션",
+        desc: "모든 기기와 플랫폼에서 원활한 경험을 제공하는 반응형 고성능 웹 및 모바일 애플리케이션을 구축합니다."
+      },
+      design: {
+        title: "UI/UX 디자인",
+        subtitle: "창의적이고 전략적인 디자인",
+        desc: "사용자의 참여를 유도하고 브랜드 가치를 새로운 차원으로 끌어올리는 직관적이고 시각적으로 멋진 인터페이스를 제작합니다."
+      }
+    },
+    about: {
+      titlePrefix: "코드 그 이상.",
+      titleSuffix: "우리는 당신의 파트너입니다.",
+      description: "TeraGraph는 스타트업의 민첩성과 대기업의 전문성을 갖추고 운영됩니다. 우리는 단순한 소프트웨어가 아닌 가치를 전달합니다.",
+      rapid: {
+        title: "빠른 혁신",
+        desc: "빠르게 반복합니다. 애자일 방법론을 통해 품질 저하 없이 제품을 시장에 신속하게 출시합니다."
+      },
+      reliable: {
+        title: "신뢰할 수 있는 시스템",
+        desc: "보안과 안정성은 우리가 구축하는 모든 것의 핵심입니다. 믿을 수 있는 견고한 시스템을 만듭니다."
+      },
+      global: {
+        title: "글로벌 표준",
+        desc: "국제 코딩 표준과 모범 사례를 준수하여 세계적인 수준의 솔루션을 보장합니다."
+      },
+      stats: {
+        satisfaction: "고객 만족도",
+        delivered: "프로젝트 완료",
+        support: "기술 지원",
+        experience: "년의 경험"
+      }
+    },
+    footer: {
+      description: "차세대 ICT 솔루션으로 비즈니스에 힘을 실어줍니다. 기획부터 배포까지, 디지털 혁신의 파트너가 되겠습니다.",
+      servicesTitle: "서비스",
+      contactTitle: "문의하기",
+      address: "서울특별시 테크밸리 혁신로 123",
+      privacy: "개인정보 처리방침",
+      terms: "이용 약관",
+      rights: "All rights reserved."
+    }
+  }
+};
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -24,6 +199,9 @@ const staggerContainer = {
 };
 
 export default function Home() {
+  const [lang, setLang] = useState<Language>("ko");
+  const t = translations[lang];
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
       {/* Navigation */}
@@ -33,12 +211,26 @@ export default function Home() {
             <span className="text-primary">Tera</span>Graph
           </Link>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#vision" className="text-sm font-medium hover:text-primary transition-colors">Vision</a>
-            <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">Services</a>
-            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">About</a>
-            <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">Contact</a>
+            <a href="#vision" className="text-sm font-medium hover:text-primary transition-colors">{t.nav.vision}</a>
+            <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">{t.nav.services}</a>
+            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">{t.nav.about}</a>
+            <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">{t.nav.contact}</a>
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="w-12 px-0">
+                  <Globe className="h-4 w-4" />
+                  <span className="sr-only">Switch Language</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setLang("en")}>English</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLang("ko")}>한국어</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Button variant="default" size="sm" className="rounded-full">
-              Get Started
+              {t.nav.getStarted}
             </Button>
           </div>
         </div>
@@ -64,24 +256,24 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20 backdrop-blur-sm">
-              Innovating the Digital Landscape
+              {t.hero.tagline}
             </span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
-              We Architect <br />
-              <span className="text-primary">Digital Reality</span>
+              {t.hero.titlePrefix} <br />
+              <span className="text-primary">{t.hero.titleHighlight}</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-              TeraGraph is a premier ICT solutions provider. We blend AI, mobile technology, and cutting-edge design to build the infrastructure of tomorrow.
+              {t.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" className="rounded-full text-lg h-12 px-8 w-full sm:w-auto group" asChild>
                 <a href="#services">
-                  Explore Solutions
+                  {t.hero.explore}
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
               <Button variant="outline" size="lg" className="rounded-full text-lg h-12 px-8 w-full sm:w-auto border-primary/20 hover:bg-primary/10" asChild>
-                <a href="#vision">Our Vision</a>
+                <a href="#vision">{t.hero.vision}</a>
               </Button>
             </div>
           </motion.div>
@@ -100,10 +292,9 @@ export default function Home() {
             {...fadeInUp}
             className="text-center max-w-4xl mx-auto mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Shaping the Future of Connectivity</h2>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">{t.vision.title}</h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Our vision is to create a world where technology is not just a tool, but an extension of human potential. 
-              We believe in a seamless integration of digital intelligence and physical reality.
+              {t.vision.description}
             </p>
           </motion.div>
 
@@ -118,9 +309,9 @@ export default function Home() {
                <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mb-6 text-primary">
                  <Lightbulb className="w-7 h-7" />
                </div>
-               <h3 className="text-2xl font-bold mb-4">Innovation First</h3>
+               <h3 className="text-2xl font-bold mb-4">{t.vision.innovation.title}</h3>
                <p className="text-muted-foreground">
-                 We don't just follow trends; we set them. By constantly exploring new technologies like Generative AI and IoT, we keep our clients ahead of the curve.
+                 {t.vision.innovation.desc}
                </p>
              </motion.div>
 
@@ -134,9 +325,9 @@ export default function Home() {
                <div className="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mb-6 text-accent">
                  <Target className="w-7 h-7" />
                </div>
-               <h3 className="text-2xl font-bold mb-4">Human-Centric</h3>
+               <h3 className="text-2xl font-bold mb-4">{t.vision.human.title}</h3>
                <p className="text-muted-foreground">
-                 Technology must serve people. Our solutions are designed with empathy, focusing on user experience and accessibility above all else.
+                 {t.vision.human.desc}
                </p>
              </motion.div>
 
@@ -150,9 +341,9 @@ export default function Home() {
                <div className="w-14 h-14 bg-purple-500/20 rounded-full flex items-center justify-center mb-6 text-purple-500">
                  <Zap className="w-7 h-7" />
                </div>
-               <h3 className="text-2xl font-bold mb-4">Sustainable Growth</h3>
+               <h3 className="text-2xl font-bold mb-4">{t.vision.sustainable.title}</h3>
                <p className="text-muted-foreground">
-                 We build scalable architectures that grow with your business. Sustainable code, efficient resources, and long-term partnership.
+                 {t.vision.sustainable.desc}
                </p>
              </motion.div>
           </div>
@@ -166,9 +357,9 @@ export default function Home() {
             {...fadeInUp}
             className="mb-16 text-center max-w-3xl mx-auto"
           >
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Our Core Services</h2>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">{t.services.title}</h2>
             <p className="text-muted-foreground text-lg">
-              Comprehensive IT services designed to scale with your ambition. From intelligent algorithms to pixel-perfect interfaces.
+              {t.services.description}
             </p>
           </motion.div>
 
@@ -190,12 +381,12 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary">
                     <Brain className="w-6 h-6" />
                   </div>
-                  <CardTitle className="text-2xl">AI Solutions</CardTitle>
-                  <CardDescription>Advanced Machine Learning & Data Analysis</CardDescription>
+                  <CardTitle className="text-2xl">{t.services.ai.title}</CardTitle>
+                  <CardDescription>{t.services.ai.subtitle}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground leading-relaxed">
-                    Leverage the power of artificial intelligence to automate processes, gain insights, and create smarter applications that adapt to user needs.
+                    {t.services.ai.desc}
                   </p>
                 </CardContent>
               </Card>
@@ -212,12 +403,12 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4 text-accent">
                     <Smartphone className="w-6 h-6" />
                   </div>
-                  <CardTitle className="text-2xl">Mobile & Web</CardTitle>
-                  <CardDescription>Cross-platform Applications</CardDescription>
+                  <CardTitle className="text-2xl">{t.services.mobile.title}</CardTitle>
+                  <CardDescription>{t.services.mobile.subtitle}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground leading-relaxed">
-                    We build responsive, high-performance web and mobile applications that provide seamless experiences across all devices and platforms.
+                    {t.services.mobile.desc}
                   </p>
                 </CardContent>
               </Card>
@@ -234,12 +425,12 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-lg bg-pink-500/10 flex items-center justify-center mb-4 text-pink-500">
                     <Palette className="w-6 h-6" />
                   </div>
-                  <CardTitle className="text-2xl">UI/UX Design</CardTitle>
-                  <CardDescription>Creative & Strategic Design</CardDescription>
+                  <CardTitle className="text-2xl">{t.services.design.title}</CardTitle>
+                  <CardDescription>{t.services.design.subtitle}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground leading-relaxed">
-                    Our design team crafts intuitive and visually stunning interfaces that engage users and elevate your brand identity to new heights.
+                    {t.services.design.desc}
                   </p>
                 </CardContent>
               </Card>
@@ -257,11 +448,11 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeInUp}>
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">
-                More Than Just Code. <br/>
-                <span className="text-primary">We Are Your Partners.</span>
+                {t.about.titlePrefix} <br/>
+                <span className="text-primary">{t.about.titleSuffix}</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
-                At TeraGraph, we operate with the agility of a startup and the expertise of an enterprise. We don't just deliver software; we deliver value.
+                {t.about.description}
               </p>
               
               <div className="space-y-6 mt-8">
@@ -270,9 +461,9 @@ export default function Home() {
                     <Rocket className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Rapid Innovation</h3>
+                    <h3 className="text-xl font-bold mb-2">{t.about.rapid.title}</h3>
                     <p className="text-muted-foreground">
-                      We iterate fast. Our agile methodology ensures that your product hits the market quickly without compromising on quality.
+                      {t.about.rapid.desc}
                     </p>
                   </div>
                 </div>
@@ -282,9 +473,9 @@ export default function Home() {
                     <ShieldCheck className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Reliable Systems</h3>
+                    <h3 className="text-xl font-bold mb-2">{t.about.reliable.title}</h3>
                     <p className="text-muted-foreground">
-                      Security and stability are at the core of everything we build. We create robust systems that you can rely on.
+                      {t.about.reliable.desc}
                     </p>
                   </div>
                 </div>
@@ -294,9 +485,9 @@ export default function Home() {
                     <Globe className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Global Standards</h3>
+                    <h3 className="text-xl font-bold mb-2">{t.about.global.title}</h3>
                     <p className="text-muted-foreground">
-                      We adhere to international coding standards and best practices, ensuring your solution is world-class.
+                      {t.about.global.desc}
                     </p>
                   </div>
                 </div>
@@ -314,21 +505,21 @@ export default function Home() {
                 <div className="space-y-4 mt-12">
                    <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md">
                       <h4 className="text-4xl font-bold text-primary mb-2">98%</h4>
-                      <p className="text-sm text-muted-foreground">Client Satisfaction</p>
+                      <p className="text-sm text-muted-foreground">{t.about.stats.satisfaction}</p>
                    </div>
                    <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md">
                       <h4 className="text-4xl font-bold text-accent mb-2">50+</h4>
-                      <p className="text-sm text-muted-foreground">Projects Delivered</p>
+                      <p className="text-sm text-muted-foreground">{t.about.stats.delivered}</p>
                    </div>
                 </div>
                 <div className="space-y-4">
                    <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md">
                       <h4 className="text-4xl font-bold text-pink-500 mb-2">24/7</h4>
-                      <p className="text-sm text-muted-foreground">Technical Support</p>
+                      <p className="text-sm text-muted-foreground">{t.about.stats.support}</p>
                    </div>
                    <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md">
                       <h4 className="text-4xl font-bold text-blue-500 mb-2">10+</h4>
-                      <p className="text-sm text-muted-foreground">Years Experience</p>
+                      <p className="text-sm text-muted-foreground">{t.about.stats.experience}</p>
                    </div>
                 </div>
               </div>
@@ -348,8 +539,7 @@ export default function Home() {
                 <span className="text-primary">Tera</span>Graph
               </Link>
               <p className="text-muted-foreground max-w-md mb-8">
-                Empowering businesses with next-generation ICT solutions. 
-                From concept to deployment, we are your partners in digital transformation.
+                {t.footer.description}
               </p>
               <div className="flex gap-4">
                 {/* Social placeholders */}
@@ -363,24 +553,23 @@ export default function Home() {
             </div>
 
             <div>
-              <h4 className="font-bold mb-6 text-foreground">Services</h4>
+              <h4 className="font-bold mb-6 text-foreground">{t.footer.servicesTitle}</h4>
               <ul className="space-y-4 text-muted-foreground">
-                <li className="hover:text-primary cursor-pointer transition-colors">AI & Machine Learning</li>
-                <li className="hover:text-primary cursor-pointer transition-colors">Web Development</li>
-                <li className="hover:text-primary cursor-pointer transition-colors">Mobile Apps</li>
-                <li className="hover:text-primary cursor-pointer transition-colors">UI/UX Design</li>
-                <li className="hover:text-primary cursor-pointer transition-colors">IT Consulting</li>
+                <li className="hover:text-primary cursor-pointer transition-colors">{t.services.ai.title}</li>
+                <li className="hover:text-primary cursor-pointer transition-colors">{t.services.mobile.title}</li>
+                <li className="hover:text-primary cursor-pointer transition-colors">{t.services.design.title}</li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-bold mb-6 text-foreground">Contact Us</h4>
+              <h4 className="font-bold mb-6 text-foreground">{t.footer.contactTitle}</h4>
               <ul className="space-y-4 text-muted-foreground">
                 <li className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
                   <span>
-                    123 Innovation Drive,<br />
-                    Tech Valley, Seoul, Korea
+                    {t.footer.address.split(',').map((line, i) => (
+                        <span key={i} className="block">{line.trim()}</span>
+                    ))}
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
@@ -396,10 +585,10 @@ export default function Home() {
           </div>
           
           <div className="border-t border-border/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>&copy; 2024 TeraGraph. All rights reserved.</p>
+            <p>&copy; 2024 TeraGraph. {t.footer.rights}</p>
             <div className="flex gap-8">
-              <span className="hover:text-foreground cursor-pointer">Privacy Policy</span>
-              <span className="hover:text-foreground cursor-pointer">Terms of Service</span>
+              <span className="hover:text-foreground cursor-pointer">{t.footer.privacy}</span>
+              <span className="hover:text-foreground cursor-pointer">{t.footer.terms}</span>
             </div>
           </div>
         </div>
