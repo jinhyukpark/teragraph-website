@@ -543,7 +543,7 @@ export default function Home() {
                            <Globe className="w-5 h-5" />
                          </div>
                       </div>
-                      <h4 className="text-4xl font-bold text-foreground mb-2">10+</h4>
+                      <h4 className="text-4xl font-bold text-foreground mb-2">20+</h4>
                       <p className="text-sm text-muted-foreground font-medium">{t.about.stats.experience}</p>
                    </div>
                 </div>
