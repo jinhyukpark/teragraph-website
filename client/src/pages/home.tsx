@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Smartphone, Palette, Globe, Rocket, ShieldCheck, MapPin, Mail, Phone, Lightbulb, Target, Zap, Send, Heart } from "lucide-react";
+import { ArrowRight, Brain, Smartphone, Palette, Globe, Rocket, ShieldCheck, MapPin, Mail, Phone, Lightbulb, Target, Zap, Send, Heart, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
@@ -606,7 +606,7 @@ export default function Home() {
                    <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md hover:border-blue-500/50 transition-all duration-300 group">
                       <div className="flex items-center justify-between mb-4">
                          <div className="p-2 bg-blue-500/10 rounded-full text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                           <Globe className="w-5 h-5" />
+                           <Briefcase className="w-5 h-5" />
                          </div>
                       </div>
                       <h4 className="text-4xl font-bold text-foreground mb-2">20+</h4>
