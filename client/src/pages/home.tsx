@@ -254,20 +254,45 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const t = translations[lang];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      title: formData.get('title') as string,
+      purpose: formData.get('purpose') as string,
+      content: formData.get('content') as string,
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
       toast({
         title: t.contact.form.success,
         description: t.contact.form.successDesc,
       });
-      // Reset form if needed
-      (e.target as HTMLFormElement).reset();
-    }, 1500);
+      
+      e.currentTarget.reset();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -646,15 +671,15 @@ export default function Home() {
                       <label htmlFor="title" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                         {t.contact.form.title}
                       </label>
-                      <Input id="title" placeholder={t.contact.form.titlePlaceholder} required className="bg-background/50" />
+                      <Input id="title" name="title" placeholder={t.contact.form.titlePlaceholder} required className="bg-background/50" data-testid="input-title" />
                     </div>
 
                     <div className="space-y-2">
                       <label htmlFor="purpose" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                         {t.contact.form.purpose}
                       </label>
-                      <Select required>
-                        <SelectTrigger className="bg-background/50">
+                      <Select name="purpose" required>
+                        <SelectTrigger className="bg-background/50" data-testid="select-purpose">
                           <SelectValue placeholder={t.contact.form.purposePlaceholder} />
                         </SelectTrigger>
                         <SelectContent>
@@ -672,13 +697,15 @@ export default function Home() {
                       </label>
                       <Textarea 
                         id="content" 
+                        name="content"
                         placeholder={t.contact.form.contentPlaceholder} 
                         required 
-                        className="min-h-[150px] bg-background/50 resize-none" 
+                        className="min-h-[150px] bg-background/50 resize-none"
+                        data-testid="textarea-content"
                       />
                     </div>
 
-                    <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                    <Button type="submit" className="w-full" size="lg" disabled={isSubmitting} data-testid="button-submit">
                       {isSubmitting ? (
                         <>
                           <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent"></div>
