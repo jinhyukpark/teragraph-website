@@ -199,7 +199,7 @@ const staggerContainer = {
 };
 
 export default function Home() {
-  const [lang, setLang] = useState<Language>("ko");
+  const [lang, setLang] = useState<Language>("en");
   const t = translations[lang];
 
   return (
