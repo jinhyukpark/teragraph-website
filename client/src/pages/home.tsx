@@ -29,7 +29,7 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="text-2xl font-display font-bold tracking-tighter flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
-            <span className="text-primary">Terra</span>Graph.io
+            <span className="text-primary">Tera</span>Graph
           </Link>
           <div className="hidden md:flex items-center gap-8">
             <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">Services</a>
@@ -69,7 +69,7 @@ export default function Home() {
               <span className="text-primary">Digital Reality</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-              TerraGraph.io is a premier ICT solutions provider. We blend AI, mobile technology, and cutting-edge design to build the infrastructure of tomorrow.
+              TeraGraph is a premier ICT solutions provider. We blend AI, mobile technology, and cutting-edge design to build the infrastructure of tomorrow.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" className="rounded-full text-lg h-12 px-8 w-full sm:w-auto group">
@@ -186,7 +186,7 @@ export default function Home() {
                 <span className="text-primary">We Are Your Partners.</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
-                At TerraGraph.io, we operate with the agility of a startup and the expertise of an enterprise. We don't just deliver software; we deliver value.
+                At TeraGraph, we operate with the agility of a startup and the expertise of an enterprise. We don't just deliver software; we deliver value.
               </p>
               
               <div className="space-y-6 mt-8">
@@ -270,7 +270,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-2">
               <Link href="/" className="text-2xl font-display font-bold tracking-tighter flex items-center gap-2 mb-6 hover:opacity-80 transition-opacity cursor-pointer">
-                <span className="text-primary">Terra</span>Graph.io
+                <span className="text-primary">Tera</span>Graph
               </Link>
               <p className="text-muted-foreground max-w-md mb-8">
                 Empowering businesses with next-generation ICT solutions. 
@@ -321,7 +321,7 @@ export default function Home() {
           </div>
           
           <div className="border-t border-border/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>&copy; 2024 TerraGraph.io. All rights reserved.</p>
+            <p>&copy; 2024 TeraGraph. All rights reserved.</p>
             <div className="flex gap-8">
               <span className="hover:text-foreground cursor-pointer">Privacy Policy</span>
               <span className="hover:text-foreground cursor-pointer">Terms of Service</span>
