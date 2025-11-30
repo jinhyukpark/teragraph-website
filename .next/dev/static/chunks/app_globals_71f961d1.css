@@ -2902,6 +2902,10 @@
     opacity: .9;
   }
 
+  .mix-blend-lighten {
+    mix-blend-mode: lighten;
+  }
+
   .mix-blend-overlay {
     mix-blend-mode: overlay;
   }
