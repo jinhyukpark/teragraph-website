@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { NotificationProvider } from "@/contexts/NotificationContext";
 
 export const metadata: Metadata = {
   title: "TeraGraph | AI, 모바일, 디자인 ICT 솔루션 전문기업",
@@ -98,8 +99,10 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {children}
-        <Toaster />
+        <NotificationProvider>
+          {children}
+          <Toaster />
+        </NotificationProvider>
       </body>
     </html>
   );

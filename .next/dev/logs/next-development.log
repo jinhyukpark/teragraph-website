@@ -1,11 +1,11 @@
-[00:00:01.856] Server  LOG     6:01:41 PM [nextjs] Server running at http://0.0.0.0:5000
-[00:00:01.857] Server  LOG     6:01:41 PM [nextjs] Ready for connections
-[00:00:03.600] Server  WARN     ⚠ Cross origin request detected from efcbd0a7-3674-4554-9bce-c6fb23550e3f-00-2pk5hp6rw0rq6.picard.replit.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+[00:00:01.514] Server  LOG     6:05:37 PM [nextjs] Server running at http://0.0.0.0:5000
+[00:00:01.515] Server  LOG     6:05:37 PM [nextjs] Ready for connections
+[00:00:01.864] Server  WARN     ⚠ Cross origin request detected from efcbd0a7-3674-4554-9bce-c6fb23550e3f-00-2pk5hp6rw0rq6.picard.replit.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
 Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
-[00:00:04.981] Server  LOG      ○ Compiling / ...
-[00:00:18.650] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:19.181] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:20.113] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:04.625] Server  LOG      ○ Compiling / ...
+[00:00:17.018] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:17.604] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:18.353] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -53,13 +53,33 @@ It can also happen if the client has a browser extension installed which messes 
                                       disabled={false}
                                       onPointerDown={function handleEvent}
                                       onKeyDown={function handleEvent}
--                                     fdprocessedid="igkyoh"
+-                                     fdprocessedid="9wd1ri"
+                                    >
+                            ...
+                              <Primitive.button.Slot type="button" id="radix-_R_q..." aria-haspopup="menu" ...>
+                                <Primitive.button.SlotClone type="button" id="radix-_R_q..." aria-haspopup="menu" ...>
+                                  <_c variant="ghost" size="icon" className="relative" data-testid="button-not..." ...>
+                                    <button
+                                      className={"inline-flex items-center justify-center gap-2 whitespace-nowrap rou..."}
+                                      ref={function}
+                                      data-testid="button-notifications"
+                                      type="button"
+                                      id="radix-_R_q6atmlb_"
+                                      aria-haspopup="menu"
+                                      aria-expanded={false}
+                                      aria-controls={undefined}
+                                      data-state="closed"
+                                      data-disabled={undefined}
+                                      disabled={false}
+                                      onPointerDown={function handleEvent}
+                                      onKeyDown={function handleEvent}
+-                                     fdprocessedid="m4mz6b"
                                     >
                             <_c variant="default" size="sm" className="rounded-full">
                               <button
                                 className={"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medi..."}
                                 ref={null}
--                               fdprocessedid="fkv4q"
+-                               fdprocessedid="fyihb9"
                               >
 +                               Get Started
                       <section>
@@ -83,7 +103,7 @@ It can also happen if the client has a browser extension installed which messes 
                                       placeholder="Enter the subject"
                                       required={true}
                                       data-testid="input-title"
--                                     fdprocessedid="q8nkxk"
+-                                     fdprocessedid="l9tpx9"
                                     >
                                 ...
                                   <Primitive.div.Slot ref={function}>
@@ -107,7 +127,7 @@ It can also happen if the client has a browser extension installed which messes 
                                           onPointerDown={function handleEvent}
                                           onKeyDown={function handleEvent}
                                           ref={function}
--                                         fdprocessedid="f88mn9"
+-                                         fdprocessedid="uuejrb"
                                         >
                                 <div>
                                 <_c type="submit" className="w-full" size="lg" disabled={false} ...>
@@ -117,14 +137,9 @@ It can also happen if the client has a browser extension installed which messes 
                                     type="submit"
                                     disabled={false}
                                     data-testid="button-submit"
--                                   fdprocessedid="id752n"
+-                                   fdprocessedid="v5ycxo"
                                   >
                       ...
               ...
             ...
 
-[00:00:22.005] Server  WARN     ⚠ Cross origin request detected from 127.0.0.1 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
-Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
-[00:00:22.080] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:08.655] Server  LOG      ✓ Compiled in 2.1s
-[00:02:21.014] Server  LOG     Email sent successfully to manager@teragraph.io
