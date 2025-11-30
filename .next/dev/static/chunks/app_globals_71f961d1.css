@@ -108,9 +108,6 @@
     --color-blue-500: #3080ff;
     --color-purple-500: #ac4bff;
     --color-pink-500: #f6339a;
-    --color-gray-50: #f9fafb;
-    --color-gray-600: #4a5565;
-    --color-gray-900: #101828;
     --color-black: #000;
     --color-white: #fff;
     --spacing: .25rem;
@@ -146,7 +143,6 @@
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
-    --tracking-tighter: -.05em;
     --tracking-tight: -.025em;
     --tracking-widest: .1em;
     --leading-tight: 1.25;
@@ -179,9 +175,6 @@
       --color-blue-500: lab(54.1736% 13.3369 -74.6839);
       --color-purple-500: lab(52.0183% 66.11 -78.2316);
       --color-pink-500: lab(56.9303% 76.8162 -8.07021);
-      --color-gray-50: lab(98.2596% -.247031 -.706708);
-      --color-gray-600: lab(35.6337% -1.58697 -10.8425);
-      --color-gray-900: lab(8.11897% .811279 -12.254);
     }
   }
 }
@@ -693,10 +686,6 @@
 
   .mx-3\.5 {
     margin-inline: calc(var(--spacing) * 3.5);
-  }
-
-  .mx-4 {
-    margin-inline: calc(var(--spacing) * 4);
   }
 
   .mx-auto {
@@ -1848,10 +1837,6 @@
     background-color: #f8fafc;
   }
 
-  .bg-gray-50 {
-    background-color: var(--color-gray-50);
-  }
-
   .bg-input, .bg-muted {
     background-color: #384252;
   }
@@ -2149,10 +2134,6 @@
     padding-top: calc(var(--spacing) * 4);
   }
 
-  .pt-6 {
-    padding-top: calc(var(--spacing) * 6);
-  }
-
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
   }
@@ -2354,11 +2335,6 @@
     letter-spacing: var(--tracking-tight);
   }
 
-  .tracking-tighter {
-    --tw-tracking: var(--tracking-tighter);
-    letter-spacing: var(--tracking-tighter);
-  }
-
   .tracking-widest {
     --tw-tracking: var(--tracking-widest);
     letter-spacing: var(--tracking-widest);
@@ -2417,14 +2393,6 @@
     color: lab(98.1609% -.419915 -1.20521 / .5);
   }
 
-  .text-gray-600 {
-    color: var(--color-gray-600);
-  }
-
-  .text-gray-900 {
-    color: var(--color-gray-900);
-  }
-
   .text-muted-foreground {
     color: #94a3b8;
   }
@@ -2452,10 +2420,6 @@
 
   .text-purple-500 {
     color: var(--color-purple-500);
-  }
-
-  .text-red-500 {
-    color: var(--color-red-500);
   }
 
   .text-secondary-foreground {
