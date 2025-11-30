@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Smartphone, Palette, Globe, Rocket, ShieldCheck, MapPin, Mail, Phone } from "lucide-react";
+import { ArrowRight, Brain, Smartphone, Palette, Globe, Rocket, ShieldCheck, MapPin, Mail, Phone, Lightbulb, Target, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -8,6 +8,7 @@ import heroBg from '@assets/generated_images/abstract_network_of_glowing_nodes_a
 import aiImg from '@assets/generated_images/abstract_representation_of_artificial_intelligence.png';
 import mobileImg from '@assets/generated_images/abstract_mobile_app_development_concept.png';
 import designImg from '@assets/generated_images/abstract_creative_design_concept.png';
+import visionImg from '@assets/generated_images/futuristic_horizon_with_digital_sunrise_and_connected_city.png';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -32,6 +33,7 @@ export default function Home() {
             <span className="text-primary">Tera</span>Graph
           </Link>
           <div className="hidden md:flex items-center gap-8">
+            <a href="#vision" className="text-sm font-medium hover:text-primary transition-colors">Vision</a>
             <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">Services</a>
             <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">About</a>
             <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">Contact</a>
@@ -72,15 +74,88 @@ export default function Home() {
               TeraGraph is a premier ICT solutions provider. We blend AI, mobile technology, and cutting-edge design to build the infrastructure of tomorrow.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="rounded-full text-lg h-12 px-8 w-full sm:w-auto group">
-                Explore Solutions
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <Button size="lg" className="rounded-full text-lg h-12 px-8 w-full sm:w-auto group" asChild>
+                <a href="#services">
+                  Explore Solutions
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
-              <Button variant="outline" size="lg" className="rounded-full text-lg h-12 px-8 w-full sm:w-auto border-primary/20 hover:bg-primary/10">
-                Our Vision
+              <Button variant="outline" size="lg" className="rounded-full text-lg h-12 px-8 w-full sm:w-auto border-primary/20 hover:bg-primary/10" asChild>
+                <a href="#vision">Our Vision</a>
               </Button>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Vision Section (New) */}
+      <section id="vision" className="py-24 relative overflow-hidden bg-black/20">
+        <div className="absolute inset-0 z-0">
+           <img src={visionImg} alt="Future Vision" className="w-full h-full object-cover opacity-10 mix-blend-screen" />
+           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div 
+            {...fadeInUp}
+            className="text-center max-w-4xl mx-auto mb-16"
+          >
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Shaping the Future of Connectivity</h2>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Our vision is to create a world where technology is not just a tool, but an extension of human potential. 
+              We believe in a seamless integration of digital intelligence and physical reality.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+             <motion.div 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.6, delay: 0.1 }}
+               className="bg-card/30 border border-primary/20 p-8 rounded-2xl backdrop-blur-md hover:bg-primary/5 transition-colors"
+             >
+               <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mb-6 text-primary">
+                 <Lightbulb className="w-7 h-7" />
+               </div>
+               <h3 className="text-2xl font-bold mb-4">Innovation First</h3>
+               <p className="text-muted-foreground">
+                 We don't just follow trends; we set them. By constantly exploring new technologies like Generative AI and IoT, we keep our clients ahead of the curve.
+               </p>
+             </motion.div>
+
+             <motion.div 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.6, delay: 0.2 }}
+               className="bg-card/30 border border-accent/20 p-8 rounded-2xl backdrop-blur-md hover:bg-accent/5 transition-colors"
+             >
+               <div className="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mb-6 text-accent">
+                 <Target className="w-7 h-7" />
+               </div>
+               <h3 className="text-2xl font-bold mb-4">Human-Centric</h3>
+               <p className="text-muted-foreground">
+                 Technology must serve people. Our solutions are designed with empathy, focusing on user experience and accessibility above all else.
+               </p>
+             </motion.div>
+
+             <motion.div 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.6, delay: 0.3 }}
+               className="bg-card/30 border border-purple-500/20 p-8 rounded-2xl backdrop-blur-md hover:bg-purple-500/5 transition-colors"
+             >
+               <div className="w-14 h-14 bg-purple-500/20 rounded-full flex items-center justify-center mb-6 text-purple-500">
+                 <Zap className="w-7 h-7" />
+               </div>
+               <h3 className="text-2xl font-bold mb-4">Sustainable Growth</h3>
+               <p className="text-muted-foreground">
+                 We build scalable architectures that grow with your business. Sustainable code, efficient resources, and long-term partnership.
+               </p>
+             </motion.div>
+          </div>
         </div>
       </section>
 
