@@ -504,23 +504,45 @@ export default function Home() {
             >
               <div className="relative z-10 grid grid-cols-2 gap-4">
                 <div className="space-y-4 mt-12">
-                   <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md">
-                      <h4 className="text-4xl font-bold text-primary mb-2">98%</h4>
-                      <p className="text-sm text-muted-foreground">{t.about.stats.satisfaction}</p>
+                   <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md hover:border-primary/50 transition-all duration-300 group">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="p-2 bg-primary/10 rounded-full text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                          <Target className="w-5 h-5" />
+                        </div>
+                        <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">Top Rated</span>
+                      </div>
+                      <h4 className="text-4xl font-bold text-foreground mb-2">98%</h4>
+                      <p className="text-sm text-muted-foreground font-medium">{t.about.stats.satisfaction}</p>
                    </div>
-                   <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md">
-                      <h4 className="text-4xl font-bold text-accent mb-2">50+</h4>
-                      <p className="text-sm text-muted-foreground">{t.about.stats.delivered}</p>
+                   <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md hover:border-accent/50 transition-all duration-300 group">
+                      <div className="flex items-center justify-between mb-4">
+                         <div className="p-2 bg-accent/10 rounded-full text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                           <Rocket className="w-5 h-5" />
+                         </div>
+                      </div>
+                      <h4 className="text-4xl font-bold text-foreground mb-2">50+</h4>
+                      <p className="text-sm text-muted-foreground font-medium">{t.about.stats.delivered}</p>
                    </div>
                 </div>
                 <div className="space-y-4">
-                   <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md">
-                      <h4 className="text-4xl font-bold text-pink-500 mb-2">24/7</h4>
-                      <p className="text-sm text-muted-foreground">{t.about.stats.support}</p>
+                   <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md hover:border-pink-500/50 transition-all duration-300 group">
+                      <div className="flex items-center justify-between mb-4">
+                         <div className="p-2 bg-pink-500/10 rounded-full text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors">
+                           <Phone className="w-5 h-5" />
+                         </div>
+                         <span className="text-xs font-medium text-pink-500 bg-pink-500/10 px-2 py-1 rounded-full">Always On</span>
+                      </div>
+                      <h4 className="text-4xl font-bold text-foreground mb-2">24/7</h4>
+                      <p className="text-sm text-muted-foreground font-medium">{t.about.stats.support}</p>
                    </div>
-                   <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md">
-                      <h4 className="text-4xl font-bold text-blue-500 mb-2">10+</h4>
-                      <p className="text-sm text-muted-foreground">{t.about.stats.experience}</p>
+                   <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md hover:border-blue-500/50 transition-all duration-300 group">
+                      <div className="flex items-center justify-between mb-4">
+                         <div className="p-2 bg-blue-500/10 rounded-full text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                           <Globe className="w-5 h-5" />
+                         </div>
+                      </div>
+                      <h4 className="text-4xl font-bold text-foreground mb-2">10+</h4>
+                      <p className="text-sm text-muted-foreground font-medium">{t.about.stats.experience}</p>
                    </div>
                 </div>
               </div>
