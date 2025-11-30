@@ -50,10 +50,7 @@ temp/
 *.temp
 /tmp/
 
-# Vite
-vite.config.ts.*
-
-# Replit specific
+# Replit specific (DO NOT COMMIT)
 .replit
 replit.nix
 .config/
@@ -62,7 +59,12 @@ replit.nix
 .agent_state_main.bin
 .repl_state.bin
 replit.md
+.breakpoints
+
+# Attached assets (screenshots, uploads)
+attached_assets/
 
 # Misc
 *.pem
 .turbo/
+.vercel/
