@@ -86,6 +86,7 @@ const translations = {
         satisfaction: "Client Satisfaction",
         delivered: "Projects Delivered",
         support: "Technical Support",
+        supportValue: "24 Hours",
         experience: "Years Experience"
       }
     },
@@ -170,6 +171,7 @@ const translations = {
         satisfaction: "고객 만족도",
         delivered: "프로젝트 완료",
         support: "기술 지원",
+        supportValue: "24시간",
         experience: "년의 경험"
       }
     },
@@ -532,7 +534,7 @@ export default function Home() {
                          </div>
                          <span className="text-xs font-medium text-pink-500 bg-pink-500/10 px-2 py-1 rounded-full">Always On</span>
                       </div>
-                      <h4 className="text-4xl font-bold text-foreground mb-2">24/7</h4>
+                      <h4 className="text-4xl font-bold text-foreground mb-2">{t.about.stats.supportValue}</h4>
                       <p className="text-sm text-muted-foreground font-medium">{t.about.stats.support}</p>
                    </div>
                    <div className="bg-card border border-border p-6 rounded-2xl shadow-2xl backdrop-blur-md hover:border-blue-500/50 transition-all duration-300 group">
