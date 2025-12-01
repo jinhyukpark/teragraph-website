@@ -3,15 +3,28 @@ import { db } from "@/lib/db";
 import { contactMessages, insertContactMessageSchema } from "@/shared/schema";
 import nodemailer from "nodemailer";
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || "smtp.gmail.com",
-  port: parseInt(process.env.SMTP_PORT || "587"),
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+function createTransporter() {
+  console.log("[Email] Creating transporter with:", {
+    host: process.env.SMTP_HOST || "smtp.gmail.com",
+    port: process.env.SMTP_PORT || "587",
+    user: process.env.SMTP_USER ? "configured" : "NOT SET",
+    pass: process.env.SMTP_PASS ? "configured" : "NOT SET",
+  });
+
+  const port = parseInt(process.env.SMTP_PORT || "465");
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST || "smtp.gmail.com",
+    port: port,
+    secure: port === 465,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
+  });
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -25,6 +38,7 @@ export async function POST(request: NextRequest) {
 
     if (process.env.SMTP_USER && process.env.SMTP_PASS) {
       try {
+        const transporter = createTransporter();
         await transporter.sendMail({
           from: process.env.SMTP_USER,
           to: "manager@teragraph.io",
