@@ -96,6 +96,7 @@
 
 @layer theme {
   :root, :host {
+    --font-sans: "Inter", sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --color-red-50: #fef2f2;
     --color-red-300: #ffa3a3;
@@ -145,6 +146,10 @@
     --leading-snug: 1.375;
     --leading-normal: 1.5;
     --leading-relaxed: 1.625;
+    --radius-sm: .25rem;
+    --radius-md: .5rem;
+    --radius-lg: .75rem;
+    --radius-xl: 1rem;
     --radius-2xl: 1rem;
     --ease-in-out: cubic-bezier(.4, 0, .2, 1);
     --animate-spin: spin 1s linear infinite;
@@ -156,7 +161,31 @@
     --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     --default-font-family: "Inter", sans-serif;
     --default-mono-font-family: var(--font-mono);
+    --font-display: "Space Grotesk", sans-serif;
+    --color-background: #0f1729;
+    --color-foreground: #f8fafc;
+    --color-card: #1d283a;
+    --color-card-foreground: #f8fafc;
+    --color-popover: #0f1729;
+    --color-popover-foreground: #f8fafc;
+    --color-primary: #0ff;
+    --color-primary-foreground: #0f1729;
+    --color-secondary: #384252;
+    --color-secondary-foreground: #f8fafc;
+    --color-muted: #384252;
+    --color-muted-foreground: #94a3b8;
+    --color-accent: #884cff;
+    --color-accent-foreground: #f8fafc;
+    --color-destructive: #7c1d1d;
+    --color-destructive-foreground: #f8fafc;
     --color-border: #384252;
+    --color-input: #384252;
+    --color-ring: #0ff;
+    --color-chart-1: #0ff;
+    --color-chart-2: #884cff;
+    --color-chart-3: #ff4cff;
+    --color-chart-4: #4c88ff;
+    --color-chart-5: #0fa;
   }
 
   @supports (color: lab(0% 0 0)) {
@@ -810,6 +839,10 @@
 
   .hidden {
     display: none;
+  }
+
+  .inline {
+    display: inline;
   }
 
   .inline-block {
@@ -4462,6 +4495,14 @@
 
   .\[\.border-t\]\:pt-3.border-t {
     padding-top: calc(var(--spacing) * 3);
+  }
+
+  :is(.rtl\:\*\*\:\[\.rdp-button\\\\_next\>svg\]\:rotate-180:where(:is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)), [dir="rtl"], [dir="rtl"] *) *):is(.rdp-button_next > svg) {
+    rotate: 180deg;
+  }
+
+  :is(.rtl\:\*\*\:\[\.rdp-button\\\\_previous\>svg\]\:rotate-180:where(:is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)), [dir="rtl"], [dir="rtl"] *) *):is(.rdp-button_previous > svg) {
+    rotate: 180deg;
   }
 
   :is(.rtl\:\*\*\:\[\.rdp-button\\_next\>svg\]\:rotate-180:where(:is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)), [dir="rtl"], [dir="rtl"] *) *):is(.rdp-button_next > svg) {
