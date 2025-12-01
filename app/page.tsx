@@ -3,9 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Smartphone, Palette, Globe, Rocket, ShieldCheck, MapPin, Mail, Phone, Lightbulb, Target, Zap, Send, Heart, Briefcase, Bell } from "lucide-react";
-import { NotificationCenter } from "@/components/NotificationCenter";
-import { useNotificationContext } from "@/contexts/NotificationContext";
+import { ArrowRight, Brain, Smartphone, Palette, Globe, Rocket, ShieldCheck, MapPin, Mail, Phone, Lightbulb, Target, Zap, Send, Heart, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
@@ -251,7 +249,6 @@ export default function Home() {
   const [lang, setLang] = useState<Language>("en");
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { addNotification } = useNotificationContext();
   const t = translations[lang];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -283,16 +280,6 @@ export default function Home() {
         title: t.contact.form.success,
         description: t.contact.form.successDesc,
       });
-      
-      try {
-        addNotification(
-          lang === "ko" ? "새 문의가 접수되었습니다" : "New contact submitted",
-          `${data.title} - ${data.purpose}`,
-          "success"
-        );
-      } catch (notifError) {
-        console.log("Notification error:", notifError);
-      }
       
       form.reset();
     } catch (error) {
@@ -338,8 +325,6 @@ export default function Home() {
                 <DropdownMenuItem onClick={() => setLang("ko")}>한국어</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
-            <NotificationCenter />
 
             <Button variant="default" size="sm" className="rounded-full">
               {t.nav.getStarted}

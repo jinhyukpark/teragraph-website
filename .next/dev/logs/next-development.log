@@ -1,6 +1,6 @@
-[00:00:01.781] Server  LOG     2:07:20 AM [nextjs] Server running at http://0.0.0.0:5000
-[00:00:01.781] Server  LOG     2:07:20 AM [nextjs] Ready for connections
-[00:00:05.528] Server  LOG      ○ Compiling / ...
-[00:00:13.812] Server  WARN     ⚠ Cross origin request detected from efcbd0a7-3674-4554-9bce-c6fb23550e3f-00-2pk5hp6rw0rq6.picard.replit.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+[00:00:01.639] Server  LOG     2:18:08 AM [nextjs] Server running at http://0.0.0.0:5000
+[00:00:01.639] Server  LOG     2:18:08 AM [nextjs] Ready for connections
+[00:00:05.346] Server  LOG      ○ Compiling / ...
+[00:00:09.270] Server  WARN     ⚠ Cross origin request detected from efcbd0a7-3674-4554-9bce-c6fb23550e3f-00-2pk5hp6rw0rq6.picard.replit.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
 Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
-[00:00:13.981] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:09.436] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

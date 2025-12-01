@@ -12,7 +12,6 @@
       --tw-skew-y: initial;
       --tw-space-y-reverse: 0;
       --tw-space-x-reverse: 0;
-      --tw-divide-y-reverse: 0;
       --tw-border-style: solid;
       --tw-gradient-position: initial;
       --tw-gradient-from: #0000;
@@ -101,10 +100,7 @@
     --color-red-50: #fef2f2;
     --color-red-300: #ffa3a3;
     --color-red-400: #ff6568;
-    --color-red-500: #fb2c36;
     --color-red-600: #e40014;
-    --color-yellow-500: #edb200;
-    --color-green-500: #00c758;
     --color-blue-500: #3080ff;
     --color-purple-500: #ac4bff;
     --color-pink-500: #f6339a;
@@ -168,10 +164,7 @@
       --color-red-50: lab(96.5005% 4.18508 1.52328);
       --color-red-300: lab(76.5514% 36.422 15.5335);
       --color-red-400: lab(63.7053% 60.745 31.3109);
-      --color-red-500: lab(55.4814% 75.0732 48.8528);
       --color-red-600: lab(48.4493% 77.4328 61.5452);
-      --color-yellow-500: lab(76.3898% 14.5258 98.4589);
-      --color-green-500: lab(70.5521% -66.5147 45.8073);
       --color-blue-500: lab(54.1736% 13.3369 -74.6839);
       --color-purple-500: lab(52.0183% 66.11 -78.2316);
       --color-pink-500: lab(56.9303% 76.8162 -8.07021);
@@ -498,10 +491,6 @@
     inset-block: calc(var(--spacing) * 0);
   }
 
-  .-top-1 {
-    top: calc(var(--spacing) * -1);
-  }
-
   .-top-12 {
     top: calc(var(--spacing) * -12);
   }
@@ -544,10 +533,6 @@
 
   .top-full {
     top: 100%;
-  }
-
-  .-right-1 {
-    right: calc(var(--spacing) * -1);
   }
 
   .-right-12 {
@@ -988,10 +973,6 @@
     max-height: 300px;
   }
 
-  .max-h-\[400px\] {
-    max-height: 400px;
-  }
-
   .max-h-\[var\(--radix-dropdown-menu-content-available-height\)\] {
     max-height: var(--radix-dropdown-menu-content-available-height);
   }
@@ -1112,10 +1093,6 @@
     width: calc(var(--spacing) * 72);
   }
 
-  .w-80 {
-    width: calc(var(--spacing) * 80);
-  }
-
   .w-\[--cell-size\] {
     width: --cell-size;
   }
@@ -1228,7 +1205,7 @@
     flex: 1;
   }
 
-  .flex-shrink-0, .shrink-0 {
+  .shrink-0 {
     flex-shrink: 0;
   }
 
@@ -1502,26 +1479,8 @@
     margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse)));
   }
 
-  :where(.divide-y > :not(:last-child)) {
-    --tw-divide-y-reverse: 0;
-    border-bottom-style: var(--tw-border-style);
-    border-top-style: var(--tw-border-style);
-    border-top-width: calc(1px * var(--tw-divide-y-reverse));
-    border-bottom-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
-  }
-
-  :where(.divide-border > :not(:last-child)) {
-    border-color: #384252;
-  }
-
   .self-stretch {
     align-self: stretch;
-  }
-
-  .truncate {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
   }
 
   .overflow-auto {
@@ -1644,11 +1603,6 @@
     border-left-width: 1px;
   }
 
-  .border-l-4 {
-    border-left-style: var(--tw-border-style);
-    border-left-width: 4px;
-  }
-
   .border-dashed {
     --tw-border-style: dashed;
     border-style: dashed;
@@ -1729,24 +1683,8 @@
     border-top-color: #0000;
   }
 
-  .border-l-blue-500 {
-    border-left-color: var(--color-blue-500);
-  }
-
-  .border-l-green-500 {
-    border-left-color: var(--color-green-500);
-  }
-
-  .border-l-red-500 {
-    border-left-color: var(--color-red-500);
-  }
-
   .border-l-transparent {
     border-left-color: #0000;
-  }
-
-  .border-l-yellow-500 {
-    border-left-color: var(--color-yellow-500);
   }
 
   .bg-\[--color-bg\] {
@@ -1867,11 +1805,6 @@
 
   .bg-primary {
     background-color: #0ff;
-  }
-
-  .bg-primary\/5 {
-    background-color: #00ffff0d;
-    background-color: lab(90.666% -50.6565 -14.9616 / .05);
   }
 
   .bg-primary\/10 {
@@ -2395,11 +2328,6 @@
 
   .text-muted-foreground {
     color: #94a3b8;
-  }
-
-  .text-muted-foreground\/70 {
-    color: #94a3b8b3;
-    color: lab(66.329% -2.058 -12.7689 / .7);
   }
 
   .text-pink-500 {
@@ -3198,13 +3126,6 @@
     .hover\:bg-accent\/5:hover {
       background-color: #884cff0d;
       background-color: lab(47.9064% 54.9547 -81.337 / .05);
-    }
-  }
-
-  @media (hover: hover) {
-    .hover\:bg-card\/80:hover {
-      background-color: #1d283acc;
-      background-color: lab(15.7527% -.44848 -13.2648 / .8);
     }
   }
 
@@ -5021,12 +4942,6 @@
 }
 
 @property --tw-space-x-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-
-@property --tw-divide-y-reverse {
   syntax: "*";
   inherits: false;
   initial-value: 0;
