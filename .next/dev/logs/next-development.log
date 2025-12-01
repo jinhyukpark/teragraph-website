@@ -1,54 +1,10 @@
-[00:00:02.289] Server  LOG     3:38:14 AM [nextjs] Server running at http://0.0.0.0:5000
-[00:00:02.289] Server  LOG     3:38:14 AM [nextjs] Ready for connections
-[00:00:06.068] Server  LOG      ○ Compiling / ...
-[00:00:18.002] Server  WARN     ⚠ Cross origin request detected from efcbd0a7-3674-4554-9bce-c6fb23550e3f-00-2pk5hp6rw0rq6.picard.replit.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+[00:00:01.389] Server  LOG     4:38:22 AM [nextjs] Server running at http://0.0.0.0:5000
+[00:00:01.390] Server  LOG     4:38:22 AM [nextjs] Ready for connections
+[00:00:05.122] Server  LOG      ○ Compiling / ...
+[00:00:10.540] Server  WARN     ⚠ Cross origin request detected from 127.0.0.1 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
 Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
-[00:00:18.166] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:10:14.293] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:19:56.758] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="ko">
-                          <head>
-                            <link>
-                            <link>
-+                           <link
-+                             href={"https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&..."}
-+                             rel="stylesheet"
-+                           >
--                           <script
--                             src="/__replco/static/devtools/injected.js"
--                             onerror={"parent.postMessage({event:'error',payload:'script.onerror: Failed to load '+e..."}
--                           >
-                            ...
-                          ...
-                  ...
-
-[00:19:57.405] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:10.586] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:11.901] Server  WARN     ⚠ Cross origin request detected from efcbd0a7-3674-4554-9bce-c6fb23550e3f-00-2pk5hp6rw0rq6.picard.replit.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[00:00:12.065] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:19.557] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

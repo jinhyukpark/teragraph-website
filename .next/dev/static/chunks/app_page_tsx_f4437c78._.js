@@ -4,7 +4,7 @@
   "static/chunks/_de41912e._.js",
   "static/chunks/node_modules_motion-dom_dist_es_da948acf._.js",
   "static/chunks/node_modules_framer-motion_dist_es_b71551f1._.js",
-  "static/chunks/node_modules_66772d90._.js"
+  "static/chunks/node_modules_497a035a._.js"
 ],
     source: "dynamic"
 });

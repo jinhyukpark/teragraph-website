@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Smartphone, Palette, Globe, Rocket, ShieldCheck, MapPin, Mail, Phone, Lightbulb, Target, Zap, Send, Heart, Briefcase } from "lucide-react";
+import { ArrowRight, Brain, Smartphone, Palette, Globe, Rocket, ShieldCheck, MapPin, Mail, Phone, Lightbulb, Target, Zap, Send, Heart, Briefcase, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
@@ -249,6 +249,7 @@ export default function Home() {
   const [lang, setLang] = useState<Language>("en");
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = translations[lang];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -306,6 +307,8 @@ export default function Home() {
               className="h-10 w-auto mix-blend-lighten"
             />
           </Link>
+          
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <a href="#vision" className="text-sm font-medium hover:text-primary transition-colors">{t.nav.vision}</a>
             <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">{t.nav.services}</a>
@@ -330,7 +333,81 @@ export default function Home() {
               {t.nav.getStarted}
             </Button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <div className="flex md:hidden items-center gap-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="w-12 px-0 gap-1">
+                  <Globe className="h-4 w-4" />
+                  <span className="font-medium text-xs">{lang.toUpperCase()}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setLang("en")}>English</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLang("ko")}>한국어</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              data-testid="button-mobile-menu"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {mobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="md:hidden bg-background/95 backdrop-blur-md border-b border-border/50"
+          >
+            <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
+              <a 
+                href="#vision" 
+                className="text-base font-medium hover:text-primary transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t.nav.vision}
+              </a>
+              <a 
+                href="#services" 
+                className="text-base font-medium hover:text-primary transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t.nav.services}
+              </a>
+              <a 
+                href="#about" 
+                className="text-base font-medium hover:text-primary transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t.nav.about}
+              </a>
+              <a 
+                href="#contact" 
+                className="text-base font-medium hover:text-primary transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t.nav.contact}
+              </a>
+              <Button 
+                variant="default" 
+                size="sm" 
+                className="rounded-full w-full mt-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t.nav.getStarted}
+              </Button>
+            </div>
+          </motion.div>
+        )}
       </nav>
 
       {/* Hero Section */}
